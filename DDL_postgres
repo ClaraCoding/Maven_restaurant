@@ -1,0 +1,75 @@
+create table serveur
+(
+	id serial not null
+		constraint serveur_pk
+			primary key,
+	nom varchar,
+	prenom varchar
+);
+
+alter table serveur owner to postgres;
+
+create table type_plat
+(
+	id serial not null
+		constraint type_plat_pk
+			primary key,
+	type_plat varchar
+);
+
+alter table type_plat owner to postgres;
+
+create table plat
+(
+	id serial not null
+		constraint table_name_pk
+			primary key,
+	nom varchar,
+	prix double precision,
+	type_plat_idx integer
+		constraint plat_type__fk
+			references type_plat
+);
+
+alter table plat owner to postgres;
+
+create table table_resto
+(
+	id serial not null
+		constraint table_resto_pk
+			primary key,
+	emplacement varchar,
+	max_convives integer
+);
+
+alter table table_resto owner to postgres;
+
+create table facture
+(
+	id serial not null
+		constraint facture_pk
+			primary key,
+	date date,
+	serveur_idx integer
+		constraint facture_serveur_id_fk
+			references serveur,
+	nb_convives integer,
+	table_idx integer
+		constraint facture_table_resto_id_fk
+			references table_resto
+);
+
+alter table facture owner to postgres;
+
+create table plat_facture_combo
+(
+	facture_idx integer not null
+		constraint combo_facture_fk
+			references facture,
+	quantity integer,
+	plat_nom varchar,
+	plat_prix double precision
+);
+
+alter table plat_facture_combo owner to postgres;
+
