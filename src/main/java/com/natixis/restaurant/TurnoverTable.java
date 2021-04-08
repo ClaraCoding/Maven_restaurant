@@ -30,7 +30,7 @@ public class TurnoverTable {
         }}
         rs.close();
         sql.close();
-            System.out.println("Chiffre d'affaires total: " + turnover + "€\n");
+
 
     }
 

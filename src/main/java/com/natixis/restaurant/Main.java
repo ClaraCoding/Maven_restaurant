@@ -23,12 +23,15 @@ public class Main {
             int option = sc.nextInt();
 
             if (option == 2) {
-                System.out.println("Pour afficher les plats les plus vendus, indiquer le max de ligne à afficher (0=chiffres d'affaires)");
+                System.out.println("Indiquer le top à afficher (0=chiffres d'affaires)");
                 int choice = sc.nextInt();
 
-                showTurnover(connection, choice);
                 System.out.println("\nMeilleurs emplacements:");
                 showBestTables(connection, choice);
+
+                System.out.println("\nMeilleurs plats:");
+                showTurnover(connection, choice);
+
             }
 
             if (option == 1) {
