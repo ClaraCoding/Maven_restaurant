@@ -37,7 +37,8 @@ public class TypePlat {
             getTypePlat.add(typePlat);
             System.out.println(typePlat);
             lastKey= rs.getInt ("id");
-        } rs.close();
+        }
+        rs.close();
         sqlOrder.close();
 
         return lastKey;

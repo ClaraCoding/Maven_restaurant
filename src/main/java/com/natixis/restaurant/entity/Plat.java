@@ -17,7 +17,6 @@ public class Plat {
         this.typePlatIdx = typePlatIdx;
     }
 
-
     @Override
     public String toString() {
         return "Ref # " + id +
@@ -31,7 +30,6 @@ public class Plat {
         try (PreparedStatement stmt = connection.prepareStatement(sqlTypePlat)) {
             stmt.setInt(1, typePlatIdx);
             ResultSet result = stmt.executeQuery();
-
 
             List<Plat> listPlats = new ArrayList<>();
 
@@ -61,7 +59,6 @@ public class Plat {
                 platCmd = result.getString("nom");
                 platPrix = result.getDouble("prix");
             }
-
             System.out.println(platCmd + " " + quantity + " x " + platPrix + "€");
         }
 
